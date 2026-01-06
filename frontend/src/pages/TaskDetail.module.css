@@ -1,0 +1,37 @@
+.titleRow {
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 0.25rem;
+}
+
+.title {
+  font: var(--font-heading);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contentWrapper {
+  width: 100%;
+  height: auto;
+}
+
+.content {
+  width: 100%;
+  max-width: 56rem;
+  /* margin: 3rem auto; */
+}
+
+.descriptorRow {
+  height: 100%;
+  /* border-bottom: 1px solid var(--color-text-secondary); */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+}

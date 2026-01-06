@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { updateTask } from "src/api/tasks";
 import { CheckButton } from "src/components";
 import styles from "src/components/TaskItem.module.css";
@@ -40,7 +41,9 @@ export function TaskItem({ task: initialTask }: TaskItemProps) {
     <div className={styles.item}>
       {<CheckButton checked={task.isChecked} disabled={isLoading} onPress={handleToggleCheck} />}
       <div className={textClass}>
-        <span className={styles.title}>{task.title}</span>
+        <Link className={styles.titleLink} to={`/tasks/${task._id}`}>
+          <span className={styles.title}>{task.title}</span>
+        </Link>
         {task.description && <span className={styles.description}>{task.description}</span>}
       </div>
     </div>
