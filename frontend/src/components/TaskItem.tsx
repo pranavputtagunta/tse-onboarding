@@ -4,6 +4,8 @@ import { updateTask } from "src/api/tasks";
 import { CheckButton } from "src/components";
 import styles from "src/components/TaskItem.module.css";
 
+import { UserTag } from "./UserTag";
+
 import type { Task } from "src/api/tasks";
 
 export type TaskItemProps = {
@@ -46,6 +48,7 @@ export function TaskItem({ task: initialTask }: TaskItemProps) {
         </Link>
         {task.description && <span className={styles.description}>{task.description}</span>}
       </div>
+      {task.assignee && <UserTag user={task.assignee} className={styles.userTag} />}
     </div>
   );
 }

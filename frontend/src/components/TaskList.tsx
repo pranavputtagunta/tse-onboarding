@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { get } from "src/api/requests";
 import { getAllTasks, type Task } from "src/api/tasks";
 import { TaskItem } from "src/components";
 import styles from "src/components/TaskList.module.css";
 
 export type TaskListProps = {
   title: string;
+  refreshToken?: number | string;
 };
 
 type TaskListErrors = {
   title?: boolean;
 };
 
-export function TaskList({ title }: TaskListProps) {
+export function TaskList({ title, refreshToken }: TaskListProps) {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [errors, setErrors] = useState<TaskListErrors>({});
 
@@ -30,7 +30,7 @@ export function TaskList({ title }: TaskListProps) {
         }
       })
       .catch(setErrorModalMessage);
-  }, []);
+  }, [refreshToken]);
 
   return (
     <div className={styles.margin}>

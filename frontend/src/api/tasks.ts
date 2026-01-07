@@ -49,6 +49,7 @@ function parseTask(task: TaskJSON): Task {
     description: task.description,
     isChecked: task.isChecked,
     dateCreated: new Date(task.dateCreated),
+    assignee: task.assignee,
   };
 }
 
